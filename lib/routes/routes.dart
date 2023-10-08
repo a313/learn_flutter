@@ -1,5 +1,5 @@
 class Routes {
   static const onboarding = '/';
-  static const login = '/';
-  static const home = '/';
+  static const login = '/login';
+  static const home = '/home';
 }

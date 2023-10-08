@@ -10,11 +10,21 @@ class OnboardingPage extends GetView<OnboardingController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafold(
+    return BaseScafoldAppBar(
+        title: 'Onboarding',
         body: Column(
-      children: [
-        MyButton.primary(title: 'Next Page', onPressed: controller.nextPage)
-      ],
-    ));
+          children: [
+            Expanded(
+              child: PageView.builder(
+                itemCount: controller.items.length,
+                itemBuilder: (context, index) => Container(
+                  color: Colors.green,
+                  child: Center(child: Text(controller.items[index])),
+                ),
+              ),
+            ),
+            MyButton.primary(title: 'Skip', onPressed: controller.onSkip)
+          ],
+        ));
   }
 }
