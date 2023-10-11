@@ -4,9 +4,9 @@ import 'package:widgets/theme/app_colors.dart';
 
 class AppTheme {
   final lightTheme = ThemeData.light().copyWith(
-    textTheme: GoogleFonts.aBeeZeeTextTheme(),
+    textTheme: GoogleFonts.poppinsTextTheme(),
     appBarTheme: const AppBarTheme().copyWith(
-      color: AppLightColors.primaryColor,
+      color: AppLightColors.Primary,
       elevation: 0,
       centerTitle: true,
     ),

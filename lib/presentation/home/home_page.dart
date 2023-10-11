@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:widgets/sharedWidgets/base_scaffold.dart';
-import 'package:widgets/sharedWidgets/my_button.dart';
 
 import '../onboarding/onboarding_controller.dart';
 import 'home_controller.dart';
@@ -17,10 +16,10 @@ class HomePage extends GetView<HomeController> {
           child: Column(
             children: [
               Text((controller.data as A).b.toString()),
-              MyButton.primary(
-                  title: 'Return', onPressed: controller.returnVal),
-              MyButton.primary(
-                  title: 'Callback', onPressed: controller.callBack)
+              // MyButton.primary(
+              //     title: 'Return', onPressed: controller.returnVal),
+              // MyButton.primary(
+              //     title: 'Callback', onPressed: controller.callBack)
             ],
           ),
         ));

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:widgets/domain/usecases/local_usecase.dart';
 import 'package:widgets/routes/pages.dart';
 import 'package:widgets/routes/routes.dart';
 import 'package:widgets/theme/app_theme.dart';
+
+import 'domain/usecases/local_usecase.dart';
 
 class App extends StatefulWidget {
   const App({super.key});

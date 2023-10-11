@@ -23,7 +23,13 @@ class OnboardingPage extends GetView<OnboardingController> {
                 ),
               ),
             ),
-            MyButton.primary(title: 'Skip', onPressed: controller.onSkip)
+            SizedBox(
+                width: double.infinity,
+                child: MyButton.P1Primary(
+                    title: 'Skip', onPressed: controller.onSkip)),
+            MyButton.P1Secondary(title: 'Skip', onPressed: controller.onSkip),
+            MyButton.S2Primary(title: 'Skip', onPressed: controller.onSkip),
+            MyButton.S2Secondary(title: 'Skip', onPressed: controller.onSkip),
           ],
         ));
   }
