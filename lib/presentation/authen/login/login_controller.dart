@@ -49,4 +49,6 @@ class LoginController extends GetxController {
   onChangePassword(String p1) {
     password = p1;
   }
+
+  forgot() {}
 }
