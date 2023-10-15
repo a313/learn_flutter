@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:widgets/routes/routes.dart';
 
 class LoginController extends GetxController {
   String user = '';
@@ -39,6 +40,7 @@ class LoginController extends GetxController {
   login() {
     if (formKey.currentState?.validate() ?? false) {
       print('Logged in');
+      Get.offNamed(Routes.home);
     }
   }
 

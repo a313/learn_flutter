@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:widgets/presentation/authen/login/login_binding.dart';
 import 'package:widgets/presentation/authen/login/login_page.dart';
+import 'package:widgets/presentation/home/arrangement/arrangement_binding.dart';
 import 'package:widgets/presentation/home/home_binding.dart';
 import 'package:widgets/presentation/home/home_page.dart';
 import 'package:widgets/presentation/onboarding/onboarding_binding.dart';
@@ -18,9 +19,9 @@ class Pages {
       page: () => const LoginPage(),
       binding: LoginBinding(),
     ),
-    GetPage(
-        name: Routes.home,
-        page: () => const HomePage(),
-        binding: HomeBinding()),
+    GetPage(name: Routes.home, page: () => const HomePage(), bindings: [
+      HomeBinding(),
+      ArrangementBinding(),
+    ]),
   ];
 }
