@@ -64,8 +64,9 @@ class LoginPage extends GetView<LoginController> {
                             title: 'Logg inn', onPressed: controller.login)),
                     SizedBox(
                       width: double.infinity,
-                      child: MyButton.S2Primary(
-                          title: 'Glemt passord', onPressed: controller.forgot),
+                      child: MyButton.P1Third(
+                          title: 'Glemt passord?',
+                          onPressed: controller.forgot),
                     ),
                   ],
                 ),
@@ -74,7 +75,7 @@ class LoginPage extends GetView<LoginController> {
           ),
           Text(
             'powered by Consio',
-            style: AppFonts.Medium14.copyWith(color: context.Primary),
+            style: AppFonts.Medium14.copyWith(color: context.Duotone3),
           )
         ],
       ),

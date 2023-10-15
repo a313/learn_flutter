@@ -133,9 +133,9 @@ class _BaseLabelTextFieldState extends State<BaseLabelTextField> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  border: getBorderByState(),
-                ),
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                    border: getBorderByState(isErr),
+                    color: getBackgroundByState(isErr)),
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
@@ -146,16 +146,7 @@ class _BaseLabelTextFieldState extends State<BaseLabelTextField> {
                       child: AnimatedDefaultTextStyle(
                         duration: _kTransitionDuration,
                         curve: _kTransitionCurve,
-                        style: smallLabel
-                            //TODO change font size
-                            ? AppFonts.Bold14.copyWith(
-                                color: context.Primary.withOpacity(
-                                    widget.enabled ? 1 : 0.5),
-                                height: 1)
-                            : AppFonts.Bold14.copyWith(
-                                color: context.Primary.withOpacity(
-                                    widget.enabled ? 1 : 0.5),
-                                height: 1),
+                        style: getStyleByState(isErr, smallLabel),
                         child: Text(widget.label),
                       ),
                     ),
@@ -177,7 +168,8 @@ class _BaseLabelTextFieldState extends State<BaseLabelTextField> {
                         style: AppFonts.Medium14.copyWith(
                           color: widget.enabled
                               ? null //TODO change color
-                              : HexColor.fromHex('#EBEBE4'),
+                              // : HexColor.fromHex('#EBEBE4'),
+                              : context.Disabled,
                         ),
                         decoration: InputDecoration(
                           isDense: true,
@@ -212,9 +204,15 @@ class _BaseLabelTextFieldState extends State<BaseLabelTextField> {
                                   },
                                   icon: isObscureText
                                       ? SvgPicture.asset(
-                                          'assets/svg/View_hide.svg')
+                                          'assets/svg/View_hide.svg',
+                                          colorFilter: isErr
+                                              ? context.Error.filterscrin
+                                              : context.Primary.filterscrin)
                                       : SvgPicture.asset(
-                                          'assets/svg/View_light.svg')))
+                                          'assets/svg/View_light.svg',
+                                          colorFilter: isErr
+                                              ? context.Error.filterscrin
+                                              : context.Primary.filterscrin)))
                           : Positioned(
                               right: 0,
                               child: controller.text.hasText && widget.enabled
@@ -239,7 +237,8 @@ class _BaseLabelTextFieldState extends State<BaseLabelTextField> {
                     errText!,
                     style: widget.errorStyle ??
                         AppFonts.Regular14.copyWith(
-                            color: HexColor.fromHex('#CC3300')),
+                            //color: HexColor.fromHex('#CC3300')),
+                            color: context.Error),
                   ),
                 ),
               if (!isErr && widget.helperText.hasText)
@@ -280,8 +279,9 @@ class _BaseLabelTextFieldState extends State<BaseLabelTextField> {
     }
   }
 
-  Border getBorderByState() {
+  Border getBorderByState(bool isError) {
     //TODO change HexColor -> context. ...
+    if (isError) return Border.all(color: context.Error);
     switch (state) {
       case TFState.unfocus:
         return Border.all(color: HexColor.fromHex('#B3B3B3'));
@@ -290,9 +290,9 @@ class _BaseLabelTextFieldState extends State<BaseLabelTextField> {
       case TFState.filled:
         return Border.all(color: context.Primary);
       case TFState.error:
-        return Border.all(color: HexColor.fromHex('#CC3300'));
+        return Border.all(color: context.Error);
       case TFState.disable:
-        return Border.all(color: HexColor.fromHex('#EBEBE4'));
+        return Border.all(color: context.Disabled);
     }
   }
 
@@ -303,5 +303,23 @@ class _BaseLabelTextFieldState extends State<BaseLabelTextField> {
       widget.onEndEdit?.call(controller.text);
     }
     updateUI();
+  }
+
+  Color getBackgroundByState(bool isErr) {
+    if (isErr)
+      return context.Error.withOpacity(0.1);
+    else
+      return context.Transparent;
+  }
+
+  getStyleByState(bool isError, bool smallLabel) {
+    if (isError && smallLabel)
+      return AppFonts.Medium10.copyWith(color: context.Error);
+    else if (isError && !smallLabel)
+      return AppFonts.Medium14.copyWith(color: context.Error);
+    else if (!isError && smallLabel)
+      return AppFonts.Medium10.copyWith(color: context.Primary);
+    else if (!isError && !smallLabel)
+      return AppFonts.Medium14.copyWith(color: context.Primary);
   }
 }
