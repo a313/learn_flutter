@@ -40,7 +40,7 @@ class LoginController extends GetxController {
   login() {
     if (formKey.currentState?.validate() ?? false) {
       print('Logged in');
-      Get.offNamed(Routes.home);
+      Get.offAllNamed(Routes.home);
     }
   }
 

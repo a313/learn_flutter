@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:widgets/routes/pages.dart';
 import 'package:widgets/routes/routes.dart';
@@ -36,6 +37,13 @@ class _AppState extends State<App> {
       theme: AppTheme().lightTheme,
       getPages: Pages.pages,
       initialRoute: initialRoute,
+      locale: const Locale('no', 'NO'),
+      supportedLocales: const [Locale('no', 'NO')],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
     );
   }
 

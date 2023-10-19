@@ -36,4 +36,11 @@ extension BuildContextExt on BuildContext {
       isDarkTheme ? AppDarkColors.neutral600 : AppLightColors.Duotone3;
   Color get Transparent =>
       isDarkTheme ? AppDarkColors.neutral600 : AppLightColors.Transparent;
+
+  Color get Stroke1 =>
+      isDarkTheme ? AppDarkColors.neutral600 : AppLightColors.Stroke1;
+  Color get Stroke2 =>
+      isDarkTheme ? AppDarkColors.neutral600 : AppLightColors.Stroke2;
+  Color get Stroke3 =>
+      isDarkTheme ? AppDarkColors.neutral600 : AppLightColors.Stroke3;
 }

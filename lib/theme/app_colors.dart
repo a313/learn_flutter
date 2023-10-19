@@ -18,6 +18,8 @@ class AppLightColors {
   static final Duotone1 = HexColor.fromHex('#FFD40080');
   static final Duotone2 = HexColor.fromHex('#F7F7F7');
   static final Duotone3 = HexColor.fromHex('#2A323F80');
+  static final Stroke1 = HexColor.fromHex('#000080');
+  static final Stroke2 = HexColor.fromHex('#FFD400');
   static final Stroke3 = HexColor.fromHex('#B3B3B3');
   static final Transparent = Colors.transparent;
 }
