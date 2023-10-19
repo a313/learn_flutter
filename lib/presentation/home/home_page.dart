@@ -8,6 +8,7 @@ import 'package:widgets/sharedWidgets/keep_alive_wrapper.dart';
 import 'package:widgets/theme/app_font.dart';
 
 import 'home_controller.dart';
+import 'melding/melding_page.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -22,9 +23,7 @@ class HomePage extends GetView<HomeController> {
         ),
         body: TabBarView(controller: controller.tabController, children: [
           KeepAliveWrapper(child: ArrangementPage()),
-          Container(
-            color: Colors.red,
-          ),
+          KeepAliveWrapper(child: MeldingPage()),
           Container(
             color: Colors.yellowAccent,
           ),
