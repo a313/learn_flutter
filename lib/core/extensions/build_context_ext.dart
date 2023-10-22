@@ -8,6 +8,8 @@ extension BuildContextExt on BuildContext {
 
   Color get Primary =>
       isDarkTheme ? AppDarkColors.primaryColor : AppLightColors.Primary;
+  Color get Primary1 =>
+      isDarkTheme ? AppDarkColors.primaryColor : AppLightColors.Primary1;
   Color get Secondary =>
       isDarkTheme ? AppDarkColors.neutral1100 : AppLightColors.Secondary;
   Color get Secondary2 =>
