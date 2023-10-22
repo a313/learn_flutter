@@ -22,7 +22,7 @@ class HeaderComponent extends StatelessWidget {
       child: Row(
         children: [
           InkWell(
-              onTap: () {},
+              onTap: prevWeek,
               child: Padding(
                 padding: padAll12,
                 child: SvgPicture.asset('assets/svg/Arrow_drop_left.svg'),
@@ -38,7 +38,7 @@ class HeaderComponent extends StatelessWidget {
             textAlign: TextAlign.right,
           )),
           InkWell(
-              onTap: () {},
+              onTap: nextWeek,
               child: Padding(
                   padding: padAll12,
                   child: SvgPicture.asset('assets/svg/Arrow_drop_right.svg'))),

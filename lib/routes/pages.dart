@@ -5,6 +5,8 @@ import 'package:widgets/presentation/home/arrangement/arrangement_binding.dart';
 import 'package:widgets/presentation/home/home_binding.dart';
 import 'package:widgets/presentation/home/home_page.dart';
 import 'package:widgets/presentation/home/melding/melding_binding.dart';
+import 'package:widgets/presentation/home/melding/melding_detail/melding_detail_binding.dart';
+import 'package:widgets/presentation/home/melding/melding_detail/melding_detail_page.dart';
 import 'package:widgets/presentation/onboarding/onboarding_binding.dart';
 import 'package:widgets/presentation/onboarding/onboarding_page.dart';
 import 'package:widgets/routes/routes.dart';
@@ -25,5 +27,10 @@ class Pages {
       ArrangementBinding(),
       MeldingBinding(),
     ]),
+    GetPage(
+      name: Routes.meldingDetail,
+      page: () => const MeldingDetailPage(),
+      binding: MeldingDetailBinding(),
+    ),
   ];
 }

@@ -26,6 +26,7 @@ class MeldingPage extends GetView<MeldingController> {
               Expanded(
                   child: ListDataComponent(
                 data: controller.formattedData,
+                onOpenDetail: controller.onOpenDetail,
               )),
             ],
           );

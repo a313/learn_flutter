@@ -20,12 +20,13 @@ dependencies:
   intl: any
   flutter_localizations:
     sdk: flutter
- 
 
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^2.3.4 
+  icons_launcher: ^2.1.4 
 
 flutter:
 
@@ -35,3 +36,18 @@ flutter:
     - assets/
     - assets/svg/
     - assets/png/
+
+flutter_native_splash:
+  color: "#2A323F"
+  image: assets/icon4.png
+  fullscreen: true
+icons_launcher:
+  image_path: "assets/logo.jpeg"
+  platforms:
+    android:
+      enable: true
+      image_path: "assets/logo.jpeg"
+    ios:
+      enable: true
+      image_path: "assets/logo.jpeg"
+   
