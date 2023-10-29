@@ -5,6 +5,7 @@ import 'package:widgets/core/util.dart';
 
 class AppLightColors {
   static final Primary = HexColor.fromHex('#000080');
+  static final Primary1 = HexColor.fromHex('#282829');
   static final Secondary = HexColor.fromHex('#FFD400');
   static final Secondary2 = HexColor.fromHex('#999999');
   static final Disabled = HexColor.fromHex('#EBEBE4');

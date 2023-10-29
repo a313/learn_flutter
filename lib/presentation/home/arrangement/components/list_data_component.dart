@@ -47,7 +47,31 @@ class NotExistEventComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox();
+    return Container(
+      margin: EdgeInsets.fromLTRB(20, 8, 20, 0),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  color: context.Disabled, borderRadius: borRad04),
+              width: 6,
+              height: 28,
+            ),
+            sizedBoxW12,
+            Text(
+              'Ingen planer',
+              style: AppFonts.Medium14.copyWith(color: context.Secondary2),
+            )
+          ],
+        ),
+      ),
+      decoration: BoxDecoration(
+        borderRadius: borRad08,
+        border: Border.all(color: context.Stroke3, width: 0.2),
+      ),
+    );
   }
 }
 
@@ -87,16 +111,16 @@ class ArrangementItem extends StatelessWidget {
             ),
             sizedBoxH04,
             Text(
-              'kl. 09.30',
+              'Kl. ' + item.time.toStringFormat('HH.mm'),
               style: AppFonts.Medium12.copyWith(color: context.Secondary2),
             ),
             sizedBoxH04,
             Text(
-              'data',
+              item.address,
               style: AppFonts.Regular12.copyWith(color: context.Secondary2),
             ),
             sizedBoxH04,
-            Text('data', style: AppFonts.Regular14)
+            Text(item.content, style: AppFonts.Regular14)
           ],
         ),
       ),

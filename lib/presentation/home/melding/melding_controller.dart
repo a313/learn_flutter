@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:widgets/domain/models/Melding.dart';
 import 'package:widgets/domain/models/arrangement.dart';
+import 'package:widgets/routes/routes.dart';
 
 class MeldingController extends GetxController {
   int currentWeek = 1;
@@ -75,5 +76,9 @@ class MeldingController extends GetxController {
       ]
     };
     update();
+  }
+
+  onOpenDetail(Melding item) {
+    Get.toNamed(Routes.meldingDetail, arguments: item);
   }
 }
