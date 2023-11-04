@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
@@ -28,7 +30,7 @@ class ListDataComponent extends StatelessWidget {
           return SliverStickyHeader.builder(
             builder: (context, state) => StickyHeader(time: time),
             sliver: SliverList.builder(
-              itemCount: items.length,
+              itemCount: max(items.length, 1),
               itemBuilder: (context, index) {
                 if (items.isEmpty) return NotExistEventComponent();
                 final item = items.elementAt(index);

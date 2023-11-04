@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:widgets/domain/usecases/fcm_usecase.dart';
 import 'package:widgets/routes/routes.dart';
 
 class LoginController extends GetxController {
@@ -40,6 +41,7 @@ class LoginController extends GetxController {
   login() {
     if (formKey.currentState?.validate() ?? false) {
       print('Logged in');
+      Get.find<FcmUsecase>().sendFcmToken();
       Get.offAllNamed(Routes.home);
     }
   }
