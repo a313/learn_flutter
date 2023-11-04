@@ -2,9 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:widgets/core/extensions/datetime_ext.dart';
 import 'package:widgets/core/util.dart';
-import 'package:widgets/domain/models/arrangement.dart';
+import 'package:widgets/domain/models/activity/activity.dart';
 import 'package:widgets/theme/app_font.dart';
 
 class ListDataComponent extends StatelessWidget {
@@ -13,7 +14,7 @@ class ListDataComponent extends StatelessWidget {
     required this.data,
   });
 
-  final Map<DateTime, List<Arrangement>> data;
+  final Map<DateTime, List<Activity>> data;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +82,7 @@ class ArrangementItem extends StatelessWidget {
     required this.item,
   });
 
-  final Arrangement item;
+  final Activity item;
 
   @override
   Widget build(BuildContext context) {
@@ -106,21 +107,22 @@ class ArrangementItem extends StatelessWidget {
           children: [
             sizedBoxH04,
             Text(
-              item.title,
+              item.activityNm1 ?? 'unknown',
               style: AppFonts.Medium16.copyWith(color: context.Primary),
             ),
             sizedBoxH04,
             Text(
-              'Kl. ' + item.time.toStringFormat('HH.mm'),
+              'Kl. ' + (item.activityStartTime ?? ''),
               style: AppFonts.Medium12.copyWith(color: context.Secondary2),
             ),
             sizedBoxH04,
             Text(
-              item.address,
+              item.activityStartTime ?? '',
               style: AppFonts.Regular12.copyWith(color: context.Secondary2),
             ),
             sizedBoxH04,
-            Text(item.content, style: AppFonts.Regular14)
+            HtmlWidget(item.activityNote ?? '')
+           // Text(item.activityNote ?? '', style: AppFonts.Regular14)
           ],
         ),
       ),

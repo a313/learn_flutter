@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:widgets/domain/models/Melding.dart';
-import 'package:widgets/domain/models/arrangement.dart';
 import 'package:widgets/routes/routes.dart';
 
 class MeldingController extends GetxController {

@@ -1,12 +1,14 @@
 import 'package:get/get.dart';
-import 'package:widgets/domain/models/arrangement.dart';
+import 'package:widgets/core/usecase/data_state.dart';
+import 'package:widgets/domain/models/activity/activity.dart';
+import 'package:widgets/domain/usecases/activity_usecase.dart';
 
 class ArrangementController extends GetxController {
   int currentWeek = 1;
-
+  final usesases = Get.find<ActivityUsecases>();
   String get timeStr => '16. Jan 2023 - 22. Jan 2023';
 
-  Map<DateTime, List<Arrangement>> formattedData = {};
+  Map<DateTime, List<Activity>> formattedData = {};
   //TODO
   @override
   void onInit() {
@@ -33,34 +35,14 @@ class ArrangementController extends GetxController {
     getData(currentWeek);
   }
 
-  void getData(int week) {
-    formattedData = {
-      DateTime.now().subtract(Duration(hours: 24)): [],
-      DateTime.now(): [
-        Arrangement(
-            time: DateTime.now(),
-            title: 'title $week',
-            content: 'content',
-            address: 'address'),
-        Arrangement(
-            time: DateTime.now().add(Duration(minutes: 10)),
-            title: 'title $week',
-            content: 'content2',
-            address: 'address2')
-      ],
-      DateTime.now().add(Duration(hours: 25)): [
-        Arrangement(
-            time: DateTime.now(),
-            title: 'title $week',
-            content: 'content3',
-            address: 'address3'),
-        Arrangement(
-            time: DateTime.now().add(Duration(minutes: 10)),
-            title: 'title $week',
-            content: 'content4',
-            address: 'address4')
-      ]
-    };
+  Future<void> getData(int week) async {
+    final response = await usesases.getData();
+    if (response is DataSuccess<List<Activity>>) {
+      var list = response.data;
+      print(list);
+    } else {}
+    formattedData = {};
+
     update();
   }
 }
