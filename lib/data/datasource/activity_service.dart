@@ -7,6 +7,6 @@ class ActivityService extends ApiService {
   String get domain => "https://test.consio.no/";
 
   Future<Response> getActivity() {
-    return getData(endPoint: "/MinSideApi/Open/ActivityDemo");
+    return getData(endPoint: "MinSideApi/Open/getActivityDemo");
   }
 }
