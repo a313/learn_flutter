@@ -43,7 +43,6 @@ class ArrangementController extends GetxController {
       var list = response.data;
       formatData(list);
     } else {}
-    formattedData = {};
   }
 
   void formatData(List<Activity> list) {

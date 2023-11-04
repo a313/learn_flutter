@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "522662872209",
+    "project_id": "consio-98b2f",
+    "storage_bucket": "consio-98b2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522662872209:android:3efaff977316914fddeb30",
+        "android_client_info": {
+          "package_name": "no.consio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmTp2QT3FqHD9HBRy69prblvNlRtHb1Wo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
