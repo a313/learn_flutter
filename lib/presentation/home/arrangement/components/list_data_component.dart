@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
@@ -18,26 +16,33 @@ class ListDataComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: List.generate(data.keys.length, (index) {
-        final key = data.keys.elementAt(index);
-        final listItems = data[key];
-
-        return SliverStickyHeader.builder(
-          builder: (context, state) => StickyHeader(time: key),
-          sliver: SliverList.builder(
-            itemCount: max(listItems!.length, 1),
-            itemBuilder: (context, index) {
-              if (listItems.isEmpty) return NotExistEventComponent();
-              final item = listItems.elementAt(index);
-              return ArrangementItem(
-                item: item,
-              );
-            },
-          ),
-        );
-      }),
-    );
+    if (data.isNotEmpty) {
+      final beginOfWeek = data.keys.first.beginOfWeek;
+      return CustomScrollView(
+        slivers: List.generate(7, (index) {
+          final time = beginOfWeek.add(Duration(days: index));
+          List<Activity> items = [];
+          if (data.containsKey(time)) {
+            items = data[time]!;
+          }
+          return SliverStickyHeader.builder(
+            builder: (context, state) => StickyHeader(time: time),
+            sliver: SliverList.builder(
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                if (items.isEmpty) return NotExistEventComponent();
+                final item = items.elementAt(index);
+                return ArrangementItem(
+                  item: item,
+                );
+              },
+            ),
+          );
+        }),
+      );
+    } else {
+      return SizedBox();
+    }
   }
 }
 
@@ -122,7 +127,7 @@ class ArrangementItem extends StatelessWidget {
             ),
             sizedBoxH04,
             HtmlWidget(item.activityNote ?? '')
-           // Text(item.activityNote ?? '', style: AppFonts.Regular14)
+            // Text(item.activityNote ?? '', style: AppFonts.Regular14)
           ],
         ),
       ),

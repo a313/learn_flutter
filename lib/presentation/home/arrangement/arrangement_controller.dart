@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:widgets/core/extensions/datetime_ext.dart';
 import 'package:widgets/core/usecase/data_state.dart';
 import 'package:widgets/domain/models/activity/activity.dart';
 import 'package:widgets/domain/usecases/activity_usecase.dart';
@@ -36,12 +37,26 @@ class ArrangementController extends GetxController {
   }
 
   Future<void> getData(int week) async {
+    //TODO Get data by week
     final response = await usesases.getData();
     if (response is DataSuccess<List<Activity>>) {
       var list = response.data;
-      print(list);
+      formatData(list);
     } else {}
     formattedData = {};
+  }
+
+  void formatData(List<Activity> list) {
+    formattedData.clear();
+    for (var act in list) {
+      final startDate = act.activityStartDate ?? DateTime.now();
+      final day = startDate.dateWithoutTime;
+      if (formattedData.containsKey(day)) {
+        formattedData[day]!.add(act);
+      } else {
+        formattedData[day] = [act];
+      }
+    }
 
     update();
   }
