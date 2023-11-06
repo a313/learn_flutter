@@ -25,7 +25,7 @@ class ArrangementPage extends GetView<ArrangementController> {
               ),
               Expanded(
                   child: ListDataComponent(
-                data: controller.formattedData,
+                    data: controller.formattedData,
               )),
             ],
           );
