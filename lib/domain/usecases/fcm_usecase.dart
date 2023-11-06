@@ -1,10 +1,14 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
+import '../repo_abs/noti_repo_abs.dart';
+
 class FcmUsecase {
+  final NotiRepo _;
+  FcmUsecase(this._);
+
   final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
   void init() async {
     await FirebaseMessaging.instance
@@ -51,9 +55,10 @@ class FcmUsecase {
     }
   }
 
-  Future<void> sendFcmToken() async {
-    //TODO
+  Future<void> sendFcmToken(int accountId) async {
     final token = await FirebaseMessaging.instance.getToken();
-    log('FCM token: $token', name: 'FCM');
+    if (token != null) {
+      _.saveFcmToken(accountId: accountId, token: token);
+    }
   }
 }

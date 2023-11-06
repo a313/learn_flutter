@@ -8,4 +8,8 @@ class ActivityUsecases {
   Future<DataState<List<Activity>>> getData() {
     return _.getData();
   }
+
+  Future<DataState<List<Activity>>> getActivityForWeek(int week) {
+    return _.getActivityForWeek(week);
+  }
 }

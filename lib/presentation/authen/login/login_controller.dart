@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:widgets/core/extensions/datetime_ext.dart';
 import 'package:widgets/domain/usecases/fcm_usecase.dart';
 import 'package:widgets/routes/routes.dart';
 
@@ -12,36 +14,13 @@ class LoginController extends GetxController {
 
   GlobalKey<FormState> formKey = GlobalKey();
 
-  void fuctionName(dynamic par1, dynamic par2) {
-    print('par1: $par1');
-    print('par2: $par2');
-  }
-
-  void functionName2(dynamic par0, {dynamic par1 = 3, dynamic par2}) {
-    print('par1: $par0');
-    print('par1: $par1');
-    print('par2: $par2');
-  }
-
-  void functionName3([dynamic par1, dynamic par2, dynamic par3]) {
-    print('par1: $par1');
-    print('par2: $par2');
-    print('par3: $par3');
-  }
-
-  test() {
-    print('TEST: fuctionName');
-    fuctionName(1, 2);
-    print('TEST: name pararameter');
-    functionName2(0, par2: 2);
-    print('TEST: name list parameter');
-    functionName3(1, 2);
-  }
+  final notiUsecase = Get.find<FcmUsecase>();
 
   login() {
     if (formKey.currentState?.validate() ?? false) {
       print('Logged in');
-      Get.find<FcmUsecase>().sendFcmToken();
+      //TODO
+      notiUsecase.sendFcmToken(0);
       Get.offAllNamed(Routes.home);
     }
   }
@@ -54,5 +33,14 @@ class LoginController extends GetxController {
     password = p1;
   }
 
-  forgot() {}
+  forgot() {
+    final date = DateTime(2023, 2, 11);
+    var week = date.weekOfYear;
+
+    DateFormat format = DateFormat('ww');
+
+    String weekNumber = format.format(date);
+    print(week);
+    print(weekNumber);
+  }
 }

@@ -2,9 +2,11 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:widgets/data/datasource/activity_service.dart';
 import 'package:widgets/data/datasource/actor_service.dart';
+import 'package:widgets/data/datasource/noti_service.dart';
 import 'package:widgets/data/repo_impl/activity_repo_impl.dart';
 import 'package:widgets/data/repo_impl/actor_repo_impl.dart';
 import 'package:widgets/data/repo_impl/local_repo_impl.dart';
+import 'package:widgets/data/repo_impl/noti_repo_impl.dart';
 import 'package:widgets/domain/usecases/activity_usecase.dart';
 import 'package:widgets/domain/usecases/actor_usecase.dart';
 import 'package:widgets/domain/usecases/fcm_usecase.dart';
@@ -17,7 +19,7 @@ class DependecyInjection {
     Get.put(LocalUsecase(LocalRepoImpl(pref)));
     Get.put(ActorUsecases(ActorRepoImpl(ActorService())));
     Get.put(ActivityUsecases(ActivityRepoImpl(ActivityService())));
-    final fcm = FcmUsecase();
+    final fcm = FcmUsecase(NotiRepoImpl(NotiService()));
     Get.put(fcm);
     fcm.init();
   }

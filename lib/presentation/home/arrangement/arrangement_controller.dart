@@ -10,20 +10,19 @@ class ArrangementController extends GetxController {
   String get timeStr => '16. Jan 2023 - 22. Jan 2023';
 
   Map<DateTime, List<Activity>> formattedData = {};
-  //TODO
+
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     final date = DateTime.now();
-    currentWeek = ((365 - date.weekday + 10) / 7).floor();
-    currentWeek = 30;
+    currentWeek = date.weekOfYear;
+    print('Current week: $currentWeek');
+    getData(currentWeek);
   }
 
   @override
   void onReady() {
     super.onReady();
-    getData(currentWeek);
   }
 
   void nextWeek() {
@@ -37,8 +36,7 @@ class ArrangementController extends GetxController {
   }
 
   Future<void> getData(int week) async {
-    //TODO Get data by week
-    final response = await usesases.getData();
+    final response = await usesases.getActivityForWeek(week);
     if (response is DataSuccess<List<Activity>>) {
       var list = response.data;
       formatData(list);
