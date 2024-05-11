@@ -10,7 +10,7 @@ void main() async {
   //start
   await Firebase.initializeApp();
   FirebaseMessaging.instance.requestPermission();
-  await DependecyInjection.injection();
+  await DependencyInjection.injection();
   //end
   await Future.delayed(Duration(seconds: 5));
   runApp(const App());

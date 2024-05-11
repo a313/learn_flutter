@@ -12,7 +12,7 @@ import 'package:widgets/domain/usecases/actor_usecase.dart';
 import 'package:widgets/domain/usecases/fcm_usecase.dart';
 import 'package:widgets/domain/usecases/local_usecase.dart';
 
-class DependecyInjection {
+class DependencyInjection {
   static Future<void> injection() async {
     final pref = await SharedPreferences.getInstance();
 
