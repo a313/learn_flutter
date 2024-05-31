@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:widgets/presentation/authen/login/login_binding.dart';
 import 'package:widgets/presentation/authen/login/login_page.dart';
+import 'package:widgets/presentation/authen/open_id/open_id_binding.dart';
+import 'package:widgets/presentation/authen/open_id/open_id_page.dart';
 import 'package:widgets/presentation/home/arrangement/arrangement_binding.dart';
 import 'package:widgets/presentation/home/home_binding.dart';
 import 'package:widgets/presentation/home/home_page.dart';
@@ -31,6 +33,12 @@ class Pages {
       name: Routes.meldingDetail,
       page: () => const MeldingDetailPage(),
       binding: MeldingDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.openId,
+      page: () => const OpenIdPage(),
+      binding: OpenIdBinding(),
+      fullscreenDialog: true,
     ),
   ];
 }

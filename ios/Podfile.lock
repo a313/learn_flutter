@@ -1,5 +1,13 @@
 PODS:
+  - AppAuth (1.7.4):
+    - AppAuth/Core (= 1.7.4)
+    - AppAuth/ExternalUserAgent (= 1.7.4)
+  - AppAuth/Core (1.7.4)
+  - AppAuth/ExternalUserAgent (1.7.4):
+    - AppAuth/Core
   - audio_session (0.0.1):
+    - Flutter
+  - cryptography_flutter (0.2.0):
     - Flutter
   - Firebase/CoreOnly (10.18.0):
     - FirebaseCore (= 10.18.0)
@@ -34,9 +42,14 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 7.8)
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - Flutter (1.0.0)
+  - flutter_appauth (0.0.1):
+    - AppAuth (= 1.7.4)
+    - Flutter
   - flutter_local_notifications (0.0.1):
     - Flutter
   - flutter_native_splash (0.0.1):
+    - Flutter
+  - flutter_secure_storage (6.0.0):
     - Flutter
   - GoogleDataTransport (9.3.0):
     - GoogleUtilities/Environment (~> 7.7)
@@ -90,11 +103,14 @@ PODS:
 
 DEPENDENCIES:
   - audio_session (from `.symlinks/plugins/audio_session/ios`)
+  - cryptography_flutter (from `.symlinks/plugins/cryptography_flutter/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - Flutter (from `Flutter`)
+  - flutter_appauth (from `.symlinks/plugins/flutter_appauth/ios`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
+  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - just_audio (from `.symlinks/plugins/just_audio/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
@@ -107,6 +123,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppAuth
     - Firebase
     - FirebaseCore
     - FirebaseCoreInternal
@@ -120,16 +137,22 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   audio_session:
     :path: ".symlinks/plugins/audio_session/ios"
+  cryptography_flutter:
+    :path: ".symlinks/plugins/cryptography_flutter/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_messaging:
     :path: ".symlinks/plugins/firebase_messaging/ios"
   Flutter:
     :path: Flutter
+  flutter_appauth:
+    :path: ".symlinks/plugins/flutter_appauth/ios"
   flutter_local_notifications:
     :path: ".symlinks/plugins/flutter_local_notifications/ios"
   flutter_native_splash:
     :path: ".symlinks/plugins/flutter_native_splash/ios"
+  flutter_secure_storage:
+    :path: ".symlinks/plugins/flutter_secure_storage/ios"
   just_audio:
     :path: ".symlinks/plugins/just_audio/ios"
   package_info_plus:
@@ -150,7 +173,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
+  AppAuth: 182c5b88630569df5acb672720534756c29b3358
   audio_session: 088d2483ebd1dc43f51d253d4a1c517d9a2e7207
+  cryptography_flutter: 381bdacc984abcfbe3ca45ef7c76566ff061614c
   Firebase: 414ad272f8d02dfbf12662a9d43f4bba9bec2a06
   firebase_core: 0af4a2b24f62071f9bf283691c0ee41556dcb3f5
   firebase_messaging: 90e8a6db84b6e1e876cebce4f30f01dc495e7014
@@ -159,8 +184,10 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 390ea1d10a4d02b20c965cbfd527ee9b3b412acb
   FirebaseMessaging: 9bc34a98d2e0237e1b121915120d4d48ddcf301e
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_appauth: 1ce438877bc111c5d8f42da47729909290624886
   flutter_local_notifications: 4cde75091f6327eb8517fa068a0a5950212d2086
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
+  flutter_secure_storage: d33dac7ae2ea08509be337e775f6b59f1ff45f12
   GoogleDataTransport: 57c22343ab29bc686febbf7cbb13bad167c2d8fe
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
   just_audio: baa7252489dbcf47a4c7cc9ca663e9661c99aafa
@@ -173,7 +200,7 @@ SPEC CHECKSUMS:
   url_launcher_ios: bbd758c6e7f9fd7b5b1d4cde34d2b95fcce5e812
   video_player_avfoundation: e9e6f9cae7d7a6d9b43519b0aab382bca60fcfd1
   wakelock_plus: 8b09852c8876491e4b6d179e17dfe2a0b5f60d47
-  webview_flutter_wkwebview: 4f3e50f7273d31e5500066ed267e3ae4309c5ae4
+  webview_flutter_wkwebview: be0f0d33777f1bfd0c9fdcb594786704dbf65f36
 
 PODFILE CHECKSUM: 7be2f5f74864d463a8ad433546ed1de7e0f29aef
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import 'package:widgets/core/util.dart';
 import 'package:widgets/sharedWidgets/base_scaffold.dart';
 import 'package:widgets/sharedWidgets/base_textfield.dart';
@@ -61,12 +62,26 @@ class LoginPage extends GetView<LoginController> {
                     SizedBox(
                         width: double.infinity,
                         child: MyButton.S2Primary(
-                            title: 'Logg inn', onPressed: controller.login)),
+                            title: 'Logg inn 1', onPressed: controller.login1)),
                     SizedBox(
                       width: double.infinity,
                       child: MyButton.P1Third(
-                          title: 'Glemt passord?',
-                          onPressed: controller.forgot),
+                          title: 'Logg inn 2', onPressed: controller.login2),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: MyButton.P1Third(
+                          title: 'Logg inn 3', onPressed: controller.login3),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: MyButton.P1Third(
+                          title: 'Logg inn 4', onPressed: controller.login4),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: MyButton.P1Third(
+                          title: 'Logg inn 5', onPressed: controller.login5),
                     ),
                   ],
                 ),
