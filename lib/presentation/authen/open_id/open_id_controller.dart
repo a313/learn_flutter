@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:widgets/routes/routes.dart';
 
 class OpenIdController extends GetxController {
   late final WebViewController webController;
@@ -17,12 +18,18 @@ class OpenIdController extends GetxController {
           final uri = Uri.parse(request.url);
           final fragment = uri.fragment;
           final token = fragment.replaceAll('access_token=', '').split('&')[0];
-          Get.back(result: token);
+          loginSuccess(token);
           return NavigationDecision.prevent;
         }
         return NavigationDecision.navigate;
       }),
     );
     webController.loadRequest(initUri);
+  }
+
+  void loginSuccess(String token) {
+    //TODO
+    // Store token
+    Get.offAllNamed(Routes.home);
   }
 }

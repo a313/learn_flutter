@@ -48,6 +48,7 @@ class OnboardingController extends GetxController {
 
   void onSkip() {
     local.didShowOnboard(true);
-    Get.toNamed(Routes.login);
+    // Get.toNamed(Routes.login);
+    Get.toNamed(Routes.openId);
   }
 }

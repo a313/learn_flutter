@@ -19,7 +19,7 @@ class _AppState extends State<App> {
   @override
   void initState() {
     if (Get.find<LocalUsecase>().isShowOnboard()) {
-      initialRoute = Routes.login;
+      initialRoute = Routes.openId;
     } else {
       initialRoute = Routes.onboarding;
     }
