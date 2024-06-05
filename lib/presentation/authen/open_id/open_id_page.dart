@@ -11,9 +11,6 @@ class OpenIdPage extends GetView<OpenIdController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafold(
-        appBar: AppBar(
-          title: Text('Login'),
-        ),
         body: WebViewWidget(controller: controller.webController));
   }
 }
